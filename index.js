@@ -1,3 +1,4 @@
+const axios = require("axios");
 const express = require("express");
 const server = express();
 
@@ -29,9 +30,13 @@ server.get("/movies/:searchQuery", function (req, res) {
   //fetch http://ombdapi.com/ + api key + search query param
   let queryParam = req.params.searchQuery;
   const url = `http://omdbapi.com/?apikey=${OMDB_APIKEY}&s=${queryParam}`;
+  axios.get(url).then(function (response) {
+    // handle success
+    res.json(response.data);
+  });
 
-  fetch(url)
-    .then((response) => response.json())
-    .then((data) => res.json(data));
+  // fetch(url)
+  //   .then((response) => response.json())
+  //   .then((data) => res.json(data));
   // after fetch, movies.data to get the data part of the response
 });
