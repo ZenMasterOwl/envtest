@@ -28,7 +28,7 @@ server.get("/movies/:s", function (req, res) {
 server.get("/movies/:searchQuery", function (req, res) {
   //fetch http://ombdapi.com/ + api key + search query param
   let queryParam = req.params.searchQuery;
-  const url = `http://omdbapi.com/?apikey=${APIKEY}&s=${queryParam}`;
+  const url = `http://omdbapi.com/?apikey=${OMDB_APIKEY}&s=${queryParam}`;
 
   fetch(url)
     .then((response) => response.json())
