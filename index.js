@@ -2,15 +2,19 @@ const express = require("express");
 const server = express();
 
 OMDB_APIKEY = process.env.OMDB_APIKEY;
-let PORT;
-if (process.env.PORT !== undefined) {
-  PORT = process.env.PORT;
-} else {
-  PORT = 3000;
-}
-server.listen(PORT, () => {
-  console.log("Server started");
-});
+// let PORT;
+// if (process.env.PORT !== undefined) {
+//   PORT = process.env.PORT;
+// } else {
+//   PORT = 3000;
+// }
+
+server.listen(process.env.PORT || 3000, () =>
+  console.log("Server is running...")
+);
+// server.listen(PORT, () => {
+//   console.log("Server started");
+// });
 
 // Create a get route to go to api call
 //localhost:300/movies?s=smith
