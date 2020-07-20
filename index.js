@@ -2,7 +2,13 @@ const express = require("express");
 const server = express();
 
 OMDB_APIKEY = process.env.APIKEY;
-server.listen(3000, () => {
+let PORT;
+if (process.env.PORT !== undefined) {
+  PORT = process.env.PORT;
+} else {
+  PORT = 3000;
+}
+server.listen(PORT, () => {
   console.log("Server started");
 });
 
