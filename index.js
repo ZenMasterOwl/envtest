@@ -1,7 +1,7 @@
 const express = require("express");
 const server = express();
 
-OMDB_APIKEY = process.env.APIKEY;
+OMDB_APIKEY = process.env.OMDB_APIKEY;
 let PORT;
 if (process.env.PORT !== undefined) {
   PORT = process.env.PORT;
