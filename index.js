@@ -27,12 +27,11 @@ server.get("/movies/:s", function (req, res) {
 */
 server.get("/movies/:searchQuery", function (req, res) {
   //fetch http://ombdapi.com/ + api key + search query param
-  let queryParam = req.query.searchQuery;
+  let queryParam = req.params.searchQuery;
   const url = `http://omdbapi.com/?apikey=${APIKEY}&s=${queryParam}`;
-  res.json(
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => console.log(data))
-  );
+
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => res.json(data));
   // after fetch, movies.data to get the data part of the response
 });
